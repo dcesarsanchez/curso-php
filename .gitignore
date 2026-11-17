@@ -1,0 +1,13 @@
+# Editor
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias y secretos (para cuando uses Composer / Laravel)
+/vendor/
+/node_modules/
+.env
+*.log
