@@ -28,8 +28,7 @@ function generarDados(int $numdados): array
 {
     $dados = [];
     for ($i = 0; $i < $numdados; $i++) {
-        $numdados[] = rand(1, 6);
-        $dados[$i]= $numdados;
+        $dados[] = rand(1, 6);
     }
     return $dados;
 }
