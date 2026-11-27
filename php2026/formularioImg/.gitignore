@@ -1,3 +1,0 @@
-# No subir las imágenes que suban los usuarios, pero sí la carpeta
-uploads/*
-!uploads/.gitkeep
