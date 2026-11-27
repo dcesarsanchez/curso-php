@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Jugador</title>
+    <style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 30px 10px; }
+
+/* ----- Formulario ----- */
+.fondo-form { background: #9a9ab6; }
+.fondo-form h1 { font-family: "Courier New", monospace; text-align: center; margin: 0 0 20px; }
+.tarjeta-form { background: #fff; max-width: 470px; margin: 0 auto; padding: 18px; border-radius: 10px;
+                font-family: "Courier New", monospace; }
+.tarjeta-form > label { display: block; font-weight: bold; margin: 14px 0 6px; }
+.tarjeta-form input[type=text], .tarjeta-form input[type=number], .tarjeta-form input[type=file] {
+    width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 6px; }
+fieldset { margin: 18px 0; border: 1px solid #ddd; }
+fieldset label { display: block; font-weight: bold; margin: 4px 0; }
+input[type=checkbox], input[type=radio] { accent-color: #e8541e; }
+.botones { margin-top: 16px; }
+.botones button { background: #007bff; color: #fff; border: 0; border-radius: 5px; padding: 9px 14px; margin-right: 6px; cursor: pointer; }
+.error-cliente { color: #c00; font-weight: bold; margin: 6px 0 0; }
+
+    </style>
+</head>
+<body class="fondo-form">
+    <h1>Formulario de Jugador</h1>
+
+    <!-- enctype obligatorio para poder enviar ficheros; se envía por POST a index.php -->
+    <form class="tarjeta-form" action="index.php" method="post" enctype="multipart/form-data"
+          onsubmit="return validarImagen()">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" maxlength="50" required>
+
+        <label for="alias">Alias:</label>
+        <input type="text" id="alias" name="alias" maxlength="50" required>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="1" max="120" required>
+
+        <fieldset>
+            <legend>Armas a elegir (puedes elegir varias):</legend>
+            <!-- name con [] para que PHP reciba un array -->
+            <label><input type="checkbox" name="armas[]" value="Maza"> Maza</label>
+            <label><input type="checkbox" name="armas[]" value="Antorcha"> Antorcha</label>
+            <label><input type="checkbox" name="armas[]" value="Martillo"> Martillo</label>
+            <label><input type="checkbox" name="armas[]" value="Látigo"> Látigo</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>¿Practica artes mágicas?</legend>
+            <label><input type="radio" name="magia" value="si" checked> Sí</label>
+            <label><input type="radio" name="magia" value="no"> No</label>
+        </fieldset>
+
+        <label for="imagen">Subir imagen:</label>
+        <!-- Límite orientativo para PHP: 10 KB (10240 bytes). Debe ir ANTES del input file -->
+        <input type="hidden" name="MAX_FILE_SIZE" value="10240">
+        <!-- accept filtra el diálogo de selección a ficheros .png -->
+        <input type="file" id="imagen" name="imagen" accept=".png,image/png">
+        <p id="errorImagen" class="error-cliente"></p>
+
+        <div class="botones">
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </div>
+    </form>
+
+    <script>
+        // Validación en el CLIENTE: solo PNG y máximo 10 KB.
+        // Es solo por comodidad: se puede saltar, por eso index.php vuelve a comprobarlo.
+        function validarImagen() {
+            const input = document.getElementById("imagen");
+            const aviso = document.getElementById("errorImagen");
+            aviso.textContent = "";
+            if (input.files.length === 0) return true;            // la imagen es opcional
+            const fichero = input.files[0];
+            const esPng = fichero.type === "image/png" || fichero.name.toLowerCase().endsWith(".png");
+            if (!esPng) {
+                aviso.textContent = "Solo se permiten imágenes PNG.";
+                return false;                                        // no se envía el formulario
+            }
+            if (fichero.size > 10240) {
+                aviso.textContent = "La imagen no puede superar los 10 KB.";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
