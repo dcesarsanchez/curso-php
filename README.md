@@ -1,35 +1,32 @@
 # Ejercicios de PHP
 
-Ejercicios y pequeños programas en **PHP 8** del módulo *Desarrollo Web en Entorno Servidor* (2.º DAW).
+Ejercicios y pequeños programas en **PHP 8** del módulo *Desarrollo Web en Entorno Servidor* (2.º DAW), curso 2026-2027.
+
+El repositorio sigue la misma estructura que el de clase.
 
 ## Contenido
 
 | Carpeta | Qué hay |
 | --- | --- |
-| `php2026/Tarea/` | Minijuegos: **cinco dados** (`EjercicioDados.php`) y **piedra, papel o tijera** (`piedraPapelTijera.php`) |
-| `php2026/soluciones01/` | Ejercicios 01–07: variables, condicionales, bucles y generación de HTML desde PHP |
-| `taller/` | Ejemplos de arrays |
-| `EjerciciosPHP/Ejercicio3/` | Primer ejercicio PHP con plantillas HTML |
-
-## Qué practico aquí
-
-- Funciones con tipos (`function calcularGanador(string $a, string $b): int`)
-- Arrays y sus funciones (`array_rand`, `array_sum`, `max`, `min`)
-- Constantes, `switch` y operador ternario
-- Mezclar PHP con HTML y CSS
+| `soluciones01/` … `soluciones09/` | Soluciones de las relaciones de ejercicios de cada tema |
+| `ejemplosformularios/` | Ejemplos de formularios, envío de ficheros y vistas con buffer |
+| `POO_ejemplos/` | Programación orientada a objetos: clases, herencia, interfaces, traits, métodos mágicos |
+| `BD_PDO_ejemplos/` | Acceso a bases de datos con PDO, CRUD y control de acceso MVC |
+| `exam/` | Ejercicios de examen |
+| `testphp/` | Pruebas de PHP |
+| `tareas/` | Tareas de clase |
+| `tareas/formularioImg/` | Formulario de jugador con subida de imagen PNG |
+| `tareas/foro_v1/` | Miniforo: acceso, comentario y detalles del texto (MVC) |
+| `tareas/EjercicioDados.php`, `tareas/piedraPapelTijera.php` | Minijuegos: cinco dados y piedra, papel o tijera |
+| `tareas/Ejercicio3/` | Primer ejercicio PHP con plantillas HTML |
+| `tareas/taller/` | Ejemplos de arrays |
 
 ## Cómo ejecutarlo
 
-Necesitas PHP 8 instalado (o XAMPP).
+Desde la carpeta del ejercicio:
 
 ```bash
-git clone git@github.com:dcesarsanchez/curso-php.git
-cd curso-php
 php -S localhost:8000
 ```
 
-Después abre en el navegador, por ejemplo, http://localhost:8000/php2026/Tarea/piedraPapelTijera.php
-
-## Autor
-
-Daniel · [GitHub](https://github.com/dcesarsanchez)
+y abre `http://localhost:8000` en el navegador.

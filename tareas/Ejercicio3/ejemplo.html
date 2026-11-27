@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate(obj, lowval, hival){
+            console.log(typeof(obj.value));
+
+            //if ((obj.value < lowval) || (obj.value > hival)) alert("¡Valor inválido!");
+            if ((obj.value <lowval ) || (obj.value > hival))
+                alert("¡Valor inválido!");
+
+                function identificadoe(caja) {
+                    alert(caja.name);
+                    aler(caja.value);
+                    console.log(document.getElementsByName("consulta")[1].value);
+                     console.log(document.getElementsByName("consulta")[2].value);
+                      console.log(document.getElementsByName("consulta")[3].value);
+                       console.log(document.getElementsByName("consulta")[4].value);
+                }
+
+}
+    </script>
+</head>
+<body>
+
+    <b>Introduzca un número entre 18 y 99:</b>
+    <input type="text" name="age" size=3 autofocus  onChange="validate(this, 18, 99);">
+    
+</body>
+</html>
